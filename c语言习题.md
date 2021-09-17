@@ -92,8 +92,140 @@ int main()
     
  * 提示：需要用到switch-case语句
  ```c
+ #include<stdio.h>
+int main()
+{
+	float a,b;
+	printf("请输入某人收入：");
+	scanf("%f",&a);
+	int i;
+	if(a>=5000){
+		i=5;
+	}
+	else i=a/1000;
+	switch(i)
+	{
+		case 0:
+			case 1:b=0;break;
+			case 2:b=0.05*(a-2000);break;  
+			case 3:b=50+0.1*(a-3000);break;  //这里前面为什么要加50呢，这是因为假如有3000的收入，那么有2000是没有税金的，2000~3000的那1000是按5%的税率收的所以算3000以上的都要先加上那1000的税金 
+			case 4:b=50+100+0.15*(a-4000);break; // 前面为什么要加150的原因和上面一样 
+			case 5:b=50+100+150+0.2*(a-5000);break;
+	}
+	printf("你应付的税金为：%.4f\n",b);
+	return 0;
+	
+	
+	
+}
  ```
+                
+ ## 0x4 判断是每年的第几天 
+ * 问题描述：通过键盘输入某年某月某日，判断这一天是这一年的第几天？        
+ ```c
+ #include<stdio.h>
+int main()
+{
+	int year,month,day,leap,sum;
+	printf("Please input year month day:\n ");      
+	scanf("%d %d %d",&year,&month,&day);
+    if(year%400==0||(year%4==0&&year%100!=0)) {      //闰年是公历中的名词，闰年分为普通闰年和世纪闰年。
+	                                                 //1、普通闰年：公历年份是4的倍数的，且不是100的倍数，为普通闰年。（如2004、2020年就是闰年）；
+													 //2、世纪闰年：公历年份是整百数的，必须是400的倍数才是世纪闰年（如1900年不是世纪闰年，2000年是世纪闰年）
+    	leap=1;
+    	
+	}   
+	else leap=0;
+	switch(month)
+	{
+		case 1:sum=0;break;
+		case 2:sum=31;break;
+		case 3:sum=59;break;
+		case 4:sum=90;break;
+		case 5:sum=120;break;
+		case 6:sum=151;break;
+		case 7:sum=181;break;
+		case 8:sum=212;break;
+		case 9:sum=243;break;
+		case 10:sum=273;break;
+		case 11:sum=304;break;
+		case 12:sum=334;break;
+		default:{
+			printf("month error:\n");   //这是最最标准的switchcase语句了，有case有break有default 
+			break;
+		}
+								} 
+		
+		sum=sum+day;
+		if(month>2){
+			sum=sum+leap;
+		}	
+		printf("It is the %dth day.\n",sum);
+		return 0;					
+	                          
+	
+	
+	
+	
+	
+}                                    
 
+ ```
+ `还可以用一维数组来编写，这样程序会更简洁（将12个月份的天数放到一个长度为12的一维数组中）`
+          
+	  
+  ## 0x5 循环结构的简单应用（水仙花数）
+  * 问题描述：打印出所有的水仙花数。所谓水仙花数是指一个三位数，其各位数字立方和应等于该数本身。例如，153是一个水仙花数，因为153=1^3+5^3+3^3            
+  * 习题目的：1. 为了掌握简单的for循环 2. 分解一个整数各个位的数字的方法
+  * 思路：所有的水仙花数是100~999，取出数的每一位数字，求出它们的立方和，然后判断立方和是否与此数相等       
+  ```c
+  #include<stdio.h>
+int main()
+{
+	int i,j,k,n;
+	printf("water flower's numbers are:\n");
+	for(i=100;i<=999;i++){
+		j=i%10; //个位数字
+		k=i/100;//百位数字
+		n=i/10%10;//十位数字  还有一种取法是：i%100/10
+		if(i==j*j*j+k*k*k+n*n*n){
+			printf("%-5d",i);  //这个%-5d很有意思，我们可以程序运行时候把负号去掉，把5去掉看看都会发生些什么
+			                  // 这个5表示这个数占5个位置，如果不足5位用0（空格）补全，-表示在右边补，没有负号表示在左边补 
+		} 
+		
+		
+	}
+ return 0;
+ 
+}
+  
+  
+  
+  ```
+  
+  ## 0x6 循环结构的简单应用（完全数）
+  * 问题描述：编写一个程序，求出1000以内的所有完全数（一个数如果恰好等于它除自身外的所有因子之和，则称该数为完全数。如6=1+2+3，则6是完全数）ps:6的所有因子为1，6，2，3，因为1*6=6，2*3=6
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
