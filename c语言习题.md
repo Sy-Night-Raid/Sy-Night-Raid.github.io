@@ -384,11 +384,47 @@ int main()
   8 ÷ 6            余2
   6 ÷ 2            余0
   所以最大公约数为2.
-  
-  
-  
-  
   ```
+          
+```c
+#include<stdio.h>
+int gys(int m,int n)  //求最大公约数函数 
+{
+	int t;
+	if(m<n){   //确保m比n的值大 
+		t=m;    //如果m比n小的话，将m和n的值互换 
+		m=n;
+		n=t;
+		
+	}
+	while(n!=0){    //当除数不为0时，辗转相除 
+		t=m%n;
+		m=n;
+		n=t;
+		
+	}
+	return m;  //return m是因为将最后得到的m值返回给主调函数main继续执行 
+}
+
+int gbs(int m,int n)  //gbs(int m,int n)是求m和n的最小公倍数的函数，因为m和n的最小公倍数=
+                      //m*n÷它们的最大公倍数（可以调用gys（）来求），所以gbs调用了gys，且
+					  //m和n作为实参从gbs（）传给gys（） 
+					 
+{
+	int t;
+	t=m*n/gys(m,n);
+	return t;
+}
+ main()
+{
+	int a,b;
+	printf("input a and b:");
+	scanf("%d %d",&a,&b);
+	printf("%d和%d最大公约数为%d\n",a,b,gys(a,b));
+	printf("最小公倍数为%d\n",gbs(a,b));
+
+}
+```
   
  
  
