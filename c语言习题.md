@@ -592,7 +592,59 @@ int main()
 * 指针（pointer）是C语言最重要的概念之一，用于存储变量的地址。指针是一个值为内存地址的变量（汇编中的内存地址）
 * 一元运算符&能给出变量的存储地址。例如：pooh = 24,假设pooh的存储地址是0B76，那么`printf("%d %p\n",pooh,&pooh);`将输出`24 0B76`
 * 假设一个指针变量名是ptr，ptr=&pooh;把pooh的地址赋值给ptr，例如pooh存在地址0B76，&pooh=0B76，就将0B76的值给了ptr
-* 间接运算符*：例如val=*ptr用来找出ptr地址指向的值；ptr=&bah;和val=*ptr;合在一起的作用相当于val=bah;由此可见，使用地址和间接运算符可以间接完成val=bah的功能，这也是它为什么叫间接运算符
+* 间接运算符*：假设已知ptr指向bah,ptr=&bah;例如val=*ptr用来找出ptr地址指向的值；ptr=&bah;和val=*ptr;合在一起的作用相当于val=bah;由此可见，使用地址和间接运算符可以间接完成val=bah的功能，这也是它为什么叫间接运算符
+* nurse = 22;        
+  ptr = &nurse; //指向nurse的指针（即nurse的地址）            
+  val = *ptr;  //把ptr指向的地址上的值赋值给val          
+  最终结果是把22赋值给val          
+* 声明指针:int * pi;  //pi是指向int类型变量的指针                    
+* char * pc;                    
+* float * pf,*pg;     
+* 一个交换两个变量值的函数                
+```
+#include<stdio.h>
+void change(int u,int v)
+{
+	int t;
+	t=u;
+	u=v;
+	v=t;
+	
+	
+}
+int main()
+{
+	int x=5,y=10;
+	change(x, y);
+	printf("Now x = %d and y= %d.\n",x,y);
+	return 0;
+}
+运行程序的结果是Now x = 5 and y= 10.
+首先，change()没有问题，它交换了u和v的值。问题出在把结果传回main()时。change()使用的变量并不是main()中的变量。因此，交换u和v的值对x和y的值没有影响！那么是否能用return语句把值传回main()?当然可以，在change()的末尾加上return (u); 然后修改main中的调用x = change(x,y); 但我们发现这只传回了x的值，x的值变了但y的值依旧没变。或者return (v); + y = change(x,y);也只改变了y的值
+用return语句只能把被调函数中的一个值传回主调函数，但是要传回两个值的话！要用指针！
+```
+* 使用指针在函数间通信：
+```
+#include<stdio.h>
+void change(int *u,int *v)
+{
+	int t;
+	t=*u;    //t获得u所指向地址的值 
+	*u=*v;
+	*v=t;
+	
+	
+}
+int main()
+{
+	int x=5,y=10;
+	change(&x, &y);  //把地址发送给函数 
+	printf("Now x = %d and y= %d.\n",x,y);
+	return 0;
+}
+程序运行的结果是Now x = 10 and y= 5.
+```
+          
  
  
  
