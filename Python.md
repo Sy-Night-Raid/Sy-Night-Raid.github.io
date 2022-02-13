@@ -78,12 +78,102 @@ print(message)
 于是需要调用函数str（），这个函数的作用就是让Python将非字符串值表示为字符串
 
 age = 20
-message = "Happy" + str(age) + "rd Birthday!"   # 可以用拼接来创建信息，再把整条信息都存储再一个变量中
+message = "Happy" + str(age) + "rd Birthday!"   # 可以用拼接来创建信息，再把整条信息都存储在一个变量中
 print(message)
 
 这样就会输出我们想要的了
 
 ```
+### 在字符串中使用\t或\n来添加空白
+```python
+print("Python")
+print("\tPython")
+print("Python\t")
+
+输出的结果为
+Python
+  Python
+Python # 就是在右边添加了空白，看不出来罢了
+# \t就相当于tab，即在字符串左边添加了一小段空白
+```
+```python
+print("Languages:\n\tPython\n\tC\n\tJavaScript")
+
+输出结果为
+Languages:
+  Python
+  C
+  JavaScript
+ 
+# \n就是换行的作用
+```
+### 删除字符串的空白
+* 方法strip(),rstrip(),lstrip()函数
+```python
+best_language = " python "
+best_language.strip()
+print(best_language)
+
+我们会发现输出结果依然是左右带有空格的字符串
+# 看来，这种strip方法删除空白只是暂时的，并不是永久性的改变字符串
+
+best_language = " python "
+best_language = best_language.strip()      # 要想永久删除字符串中的空白，必须将删除后的结果存回到变量中
+print(best_language)
+
+这样就将空白永久清除了
+
+strip()是清空两边
+rstrip()是清空右侧
+lstrip()是清空左侧
+ 
+ ```
+ 
+ ## 数字
+ * 在Python中，可直接对数字进行四则运算
+ ```python
+ 2 + 3
+ 3 - 2
+ 2 * 3 
+ 3 / 2       # 运行后都会直接的到结果
+ 
+ 3 ** 2      # 表示3的2次方
+ 10 ** 6       # 表示10的6次方
+ 
+ 
+ 2 + 3*4 
+ （2 + 3 ）* 4      # 用括号可以改变运算先后顺序
+ ```
+ 
+ ## 注释：#号后面的内容为注释                   
+                          
+ ## Python禅言：输入import this 后执行
+ ```python
+ 
+ The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+
+```
+
  
 
 
