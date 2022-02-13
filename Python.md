@@ -539,7 +539,110 @@ numbers = (400,100)
 ```
           
               
-# 第五章 字典
+# 第四章 字典
+       
+## 0x0 简单的字典
+* 我们来设计一个游戏，里面有许多外星人，那么我们描述这些外星人的各种数值时候就要用到字典，字典存储着外星人的基本信息
+```python
+
+alien_0 = {"color":"green","points":"5"}        # 零号外星人的各种信息
+print(alien_0["color"])
+print(alien_0["points"])
+输出结果为
+green
+5
+
+```
+
+## 0x1 使用字典
+
+* 字典是一种动态结构，可以随时添加信息
+```python
+
+alien_0 = {"color":"green","points":"5"}  
+print(alien_0)
+
+alien_0["x position"] = 0                 # 在字典中添加的两个新信息
+alien_0["y position"] = 25
+print(alien_0)
+
+输出结果为
+{'color': 'green', 'points': '5'}
+{'color': 'green', 'points': '5', 'x position': 0, 'y position': 25}   # 这里发现，我明明先添加的x啊，为什么是y在前面？注意了，信息的排列顺序和添加顺序不一致，因为字典中信息的添加顺序根本不重要，重要的是信息与信息之间的关联关系
+
+
+
+
+
+我们还可以创建一个空字典，不断往里加入信息
+alien_0 = {}
+
+```
+
+## 0x2 修改字典
+              
+* 现在来假设一个场景，随着游戏的进行，一个外星人从绿色变成了黄色
+```python
+
+alien_0 = {"color":"green"}
+print("The alien_0 is " + alien_0["color"] + ".")
+
+alien_0["color"] = "yellow"
+print("The alien_0 is now " + alien_0["color"] + ".")
+
+输出结果为
+The alien_0 is green.
+The alien_0 is now yellow.
+
+```
+                         
+* 用del语句删除字典中的某个信息（永久删除不可使用）`del alien_0["color"]`
+
+## 0x3 字典的不同用法
+          
+* 前面是存储一个角色的各种信息。但字典也可以用来存储众多对象的同一种信息，例如调查许多人最喜欢的编程语言，用字典来存储调查结果。
+```python
+
+best_languages = {"roy":"python","ace":"C","anna":"ruby"}
+print("Roy's favorite language is " + 
+  best_languages["roy"].title()+
+    ".")
+输出结果为
+Roy's favorite language is Python.
+# 这里还演示了如何将较长的print语句分成多行，在适当的地方换行后，要加上一个tab，这样就不会报错了，python会把他们当成正常的一行运行的
+
+```
+                        
+## 0x4 用for循环和方法items()遍历字典
+```python
+
+user_0 = {
+  "username": "Nightraid",
+  "first" : "Night",
+  "last" :  "Raid"  }
+  
+for key,door in user_0.items():
+    print("\nKey: "+key)
+    print("Door: "+door)
+    
+    
+输出结果为
+Key: username
+Door: Nightraid
+
+Key: first
+Door: Night
+
+Key: last
+Door: Raid
+
+```
+
+* 当不需要使用字典中的值时，我们可以遍历字典中的所有key，这时就要用到方法keys()               
+`for sth in xxx.keys()`  将在xxx字典中提取出的所有key存储在sth中，然后再打印一下sth就出来咯  
+
+
+
 
 
 
