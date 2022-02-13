@@ -25,7 +25,7 @@ Hello Python Crash Course World!
 ```
 说明程序中可以随时修改变量的值，而python只会保留最新的变量值          
 
-## 第一种数据类型———字符串
+## 0x2 第一种数据类型———字符串
 ### 定义：字符串就是一系列字符
 * 在python中，用引号括起的都是字符串（在python中单引号和双引号都是可以的）
 
@@ -129,7 +129,7 @@ lstrip()是清空左侧
  
  ```
  
- ## 数字
+ ## 0x3 数字
  * 在Python中，可直接对数字进行四则运算
  ```python
  2 + 3
@@ -145,9 +145,9 @@ lstrip()是清空左侧
  （2 + 3 ）* 4      # 用括号可以改变运算先后顺序
  ```
  
- ## 注释：#号后面的内容为注释                   
+ ## 0x4 注释：#号后面的内容为注释                   
                           
- ## Python禅言：输入import this 后执行
+ ## 0x5 Python禅言：输入import this 后执行
  ```python
  
  The Zen of Python, by Tim Peters
@@ -173,6 +173,133 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 
 ```
+# 第二章 列表
+## 0x0 定义：列表由一系列按特定顺序排列的元素组成，可以将任何东西放入列表中（可以类比c语言中的数组）
+* 因为列表通常包含多个元素，所以我们一般为列表定义名字时候用复数的名称是一个不错的选择，eg：names，families,cars,trees....
+```python
+movies = ["The tinder swindler","Inception"，"Tenet","interstellar"]
+print(movies)
+print(movies[0])   # 通过指定位置访问列表中元素的方法
+print(movies[2])
+print(movies[3].title())
+
+输出结果为
+["The tinder swindler","Inception"，"Tenet","interstellar"]
+The tinder swindler
+Tenet
+Interstellar
+
+
+
+但是有时候列表中的元素非常多的时候，而且并不知道列表长度的情况下，我们想访问最后一个列表元素怎么办呢？
+Python很机智，可以将位置定为-1从而来访问列表的最后一个元素（当然想访问倒数第二个第三个，即-2 -3也是可以的~）
+
+print("movies[-1]")
+输出结果为
+interstellar
+
+
+```
+
+## 0x2 修改、添加和删除列表元素      
+         
+### 1. 修改列表元素       
+
+```python
+
+
+movies = ["The tinder swindler","Inception","Tenet","interstellar"]
+print(movies)
+
+movies[0] = "Black Mirror"
+print(movies)
+
+输出结果为
+['The tinder swindler', 'Inception', 'Tenet', 'interstellar']
+['Black Mirror', 'Inception', 'Tenet', 'interstellar']
+
+
+```
+
+### 2. 添加列表元素
+```python
+在列表末尾添加元素
+
+movies = ["The tinder swindler","Inception","Tenet","interstellar"]
+movies.append("Black Mirror")     # append的意思是‘追加，附加’，这里它的作用就是将元素添加到列表末尾
+print(movies)
+
+
+输出结果为
+["The tinder swindler","Inception","Tenet","interstellar","Black Mirror"]
+
+
+
+
+
+
+# append的存在让动态地创建列表变得轻而易举。我们生活中通常要在一个列表中不停添加进去新内容，这时append的作用就来了
+
+movies = []
+movies.append("The tinder swindler")
+movies.append("Inception")
+movies.append("Tenet")
+movies.append("interstellar")
+print(movies)
+
+输出结果为
+["The tinder swindler","Inception","Tenet","interstellar"]
+
+
+
+
+```
+
+
+```python
+在列表中插入元素
+
+movies = ["The tinder swindler","Inception","Tenet","interstellar"]
+movies.insert(0，"Black Mirror")     # insert译为'嵌入，插入'
+print(movies)
+
+输出结果为
+['Black Mirror', 'Inception', 'Tenet', 'interstellar']
+
+```
+
+### 3. 删除列表元素
+```python
+用del语句删除元素
+
+
+movies = ["The tinder swindler","Inception","Tenet","interstellar"]
+del movie[0]
+print("movies")
+
+输出结果为
+["Inception","Tenet","interstellar"]
+
+
+```
+```python
+用pop()方法删除元素
+
+
+movies = ["The tinder swindler","Inception","Tenet","interstellar"]
+print(movies.pop())
+
+
+
+
+
+
+          
+
+
+
+
+
 
  
 
