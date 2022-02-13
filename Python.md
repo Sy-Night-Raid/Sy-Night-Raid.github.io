@@ -287,7 +287,262 @@ print("movies")
 
 
 movies = ["The tinder swindler","Inception","Tenet","interstellar"]
-print(movies.pop())
+print(movies.pop())      # 也可以用popped_movies = movies.pop()把弹出的值赋给变量，然后print(popped_movies)也是一样的效果
+print(movies)
+
+输出结果为
+interstellar
+['The tinder swindler', 'Inception', 'Tenet']
+
+
+pop()可以删除列表末尾的元素，与其说是删除，pop这个词翻译为'弹出'。列表就像一个栈，最后入栈的是interstellar，所以最先从栈顶弹出的就是interstellar
+
+
+但其实，pop()可以用来删除任意指定位置的元素，上面那种形容就是为了更好理解它不指定位置时候的删除原理而已。
+popped_movies = movies.pop(2)
+popped_movies = movies.pop(0)
+
+注意：使用pop()后，被删除的元素就不再存在于列表中了，但与del不同的是，使用pop删除后的元素依然可以被继续额外使用，只不过不在列表中了而已
+
+```
+**如果从列表中删除一个元素，且不再以任何方式使用它，就用del；如果在删除元素后还想继续使用这个元素，就用pop**
+       
+```python
+用remove方法删除列表中元素
+
+movies.remove("Tenet")  
+# 这种情况是我们不知道这个值在列表中的位置，但我们知道它的实际值，这时就用remove()将它删除
+# remove和pop一样，在删除后也可以继续使用
+
+```
+
+## 0x3 列表中元素排序            
+### 永久性排序————sort()方法
+```python
+
+letters = ["x","a","z","f"]
+letters.sort()
+print(letters)
+
+输出结果为
+['a', 'f', 'x', 'z']
+
+# 永久性的修改了列表顺序，而且sort()是按照字母正向的顺序排序的。
+
+
+当然还可以按字母逆向的方向排序，只需要向sort()方法传递参数即可，这个信息参数就写在（）中
+letters.sort(reverse = True)
+
+
+输出结果为
+['z', 'x', 'f', 'a']
+
+```
+
+### 临时排序————sorted()函数
+* 一边要保留元素原来的排序，一边又要以别的排序呈现，就要使用sorted()函数了
+```python
+
+letters = ["x","a","z","f"]
+print(letters)
+print(sorted(letters))
+print(sorted(letters,reverse=True))
+print(letters)
+
+
+
+输出结果为
+['x', 'a', 'z', 'f']
+['a', 'f', 'x', 'z']
+['z', 'x', 'f', 'a']
+['x', 'a', 'z', 'f']         # 可见sorted()函数一点都不影响原来的排序
+
+```
+
+### 反转排序————reverse()方法
+      
+```python
+
+
+movies.reverse()  # 即可反转现在的排序
+
+
+注意：虽然说reverse()方法是永久性的改变顺序，但随时可以恢复到原来的顺序啊，因为只要再用一次reverse()即可
+
+```
+
+## 0x4 列表的长度
+* 使用函数len()查看列表的长度：列表的长度就是列表所包含的元素的个数         
+```python
+
+letters = ["x","a","z","f"]
+i = len(letters)            or直接print(len(letters))
+print(i)     
+
+
+输出结果为
+4
+```
+
+## 0x5 for循环(扫描整个列表)
+* 我们用for循环来挨个打印出列表中电影的名字
+           
+```python
+
+
+movies = ["The tinder swindler","Inception","Tenet","interstellar"]
+for movie in movies:         # 让python从列表movies中取出一个电影存储在变量movie中
+    print(movie)
+    
+
+输出结果为
+The tinder swindler
+Inception
+Tenet
+interstellar
+
+
+
+在for循环后，缩进的代码是包含在for循环中的，而不缩进表明出循环
+for movie in movies:        
+    print(movie)
+    print(.....)
+print(.....)           # 这行就出了循环
+
+```
+
+
+## 0x6 创建数值列表
+### 函数range()
+       
+* 函数range()能够生成一系列的数字
+```python
+
+for number in range(1,5):
+    print(number)
+    
+    
+输出结果为
+1
+2
+3
+4
+# 我们以为会打印数字1~5，但并没有。这是因为函数range()是从你指定的第一个数开始数，到达你指定的第二个数时停止，所以并不包含第二个数
+# 所以使用range()时，要根据实际情况，进行 +1 or -1
+
+```
+
+### 数字列表
+* 使用函数list()将range()的结果直接转换为列表，即将range()作为list()的参数，会输出一个数字列表
+```python
+
+numbers = list(range(1,6))
+print(numbers)
+
+输出结果为
+[1, 2, 3, 4, 5]     # 这就叫一个数字列表啦
+
+```
+            
+            
+```python
+多样式range()使用
+
+numbers = list(range(2,11,2))     # 从2开始数，然后不断加2，直到达到或超过11时停止
+print(numbers)
+输出结果为
+[2,4,6,8,10]
+
+
+
+
+
+squares = []
+for number in range(1, 11):
+    square = number ** 2       # 求每个值的平方
+    squares.append(square)
+
+print(squares)
+输出结果为
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+```
+
+* 还可以对数字列表进行简单的统计计算
+```python
+
+digits = [1,2,3,4,5,6,7,8,9,0]
+print(min(digits))
+print(max(digits))
+print(sum(digits))
+输出结果为
+0
+9
+45
+
+```
+
+## 0x7 处理列表的部分元素————切片
+* 创建切片就要明确开始和终止位置，与函数range()的停止规则一样，开始于第一个数，在第二个数时停止不包含第二个数
+```python
+
+print(movies[1:3])
+print(movies[0:4])
+print(movies[:4])
+print(movies[1:])
+
+print(movies[:])   # 等同于 print(movies)   等同于将此列表复制了一份(创建了一个包含整个列表的切片)
+movies_copy = movies[:]  # 这就是复制列表，复制过后我们可以分别操纵movies和movies_copy列表，它们互不影响      但是若用movies_copy = movies这就不叫复制了，这是赋值！
+
+print(movies[-3:])  # 打印列表中的最后三个
+
+
+
+
+
+如果要遍历列表中的部分元素，要在for循环中使用切片
+for movie in movies[:3]:             # 遍历前三个
+
+```
+
+
+## 0x8 元组
+                       
+### 定义：列表适合用于存储会变化的数据集合，而有时候我们需要一些固定不变不可被修改的数据。Python将不能修改的列表称为元组。
+
+```python
+
+numbers = (200,50)
+print(numbers[0])
+print(numbers[1])
+print(numbers)
+输出结果为
+200
+50
+(200,50)
+
+
+
+与列表一样，也可用for循环去遍历元组中的所有值
+for number in numbers:
+    print(number)
+
+```
+
+### 虽然不能修改元组的元素，但可以给存储元组的变量赋值，即重新定义整个元组
+```python
+
+numbers = (200,50)
+numbers = (400,100)
+# 这样变更是合理的哦，就相当于给numbers重新赋值了另一个元组，与之前的元组没有关系，我们也没有动之前元组中的元素哦~
+
+```
+          
+              
+# 第五章 字典
+
+
+
 
 
 
