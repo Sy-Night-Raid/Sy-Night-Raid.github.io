@@ -1,177 +1,503 @@
-# 前言
-* 我们都知道markdown的特点就是简单易用，如果想要学习它，网上已经有很多文章，但为什么要阅读《了不起的markdown》这本书呢？因为网上介绍markdown的文章良莠不齐，而且内容比较碎片化，我们并不能通过这些碎片化的信息全面系统地掌握学习markdown
-# 第1章 人人都应学会markdown
-## 1.1 语法学习
-### 1. 学习基础语法    
-markdown的基础语法是指John Gruber最初发布的markdown版本，大多数扩展语法都是基于此版本开发的，因此基础语法是需要学会的
-### 2. 学习扩展语法
-在众多扩展语法中，GFM（Github Flavored Markdown的简称，Github是全球最大的程序员“交友”网站）无疑是目前最流行的。它扩展了包括表格、任务列表、删除线、围栏代码、emoji等在内的语法，功能非常全面，是笔者重点推荐学习的扩展语法。
+**笔记参考书籍**
 
-# 第2章 人人都能学会markdown
-## 2.1 基础语法
-### 2.1.1 字体
-   #### 1. 标题
- * 我们用#来标记标题，使用语法为：== #+空格+标题内容 ==    
- * #的个数表示了标题的等级，#是一级标题，##是二级标题……依此类推，那么不同级别的标题有什么区别呢？区别就是一级标题最大，然后依次递减大小
- * markdown中最多只支持前六级标题
- #### 2. 粗体和斜体
- 粗体由两个*包裹，斜体使用一个*包裹
- * **加粗内容** *斜体内容*
- ### 2.1.2 段落与换行
- markdown中的段落由一行或多行文本组成，不同的段落之间使用空行来标记
- * 语法说明如下
-    1. 如果行与行之间没有空行，则会被视为同一段落（也就是说在markdown中你如果不特意去标记有空行的话，不管你怎么在文本编辑中输入回车换行来继续书写，最后浏览的内容都是在同一行中的）
-    2. 空行是指行内什么都没有，或者只有空格和制表符
- * 如果想在段内换行，则需要在上一行的结尾插入两个以上的空格然后按回车键   
-    
- ### 2.1.3 列表
- 分为有序列表和无序列表两种，有序列表用数字序号+英文句号+空格+列表内容来标记，无序列表由*+空格+列表内容来标记
- * 嵌套列表的语法示例如下：   
- 第一层列表   
- tab+第二层列表   
- tab+tab+第三层列表
- * 有序列表和无序列表也可以相互嵌套   
-     
- ### 2.1.4 分隔线
- 分隔线由3个以上的*来标记
- * 使用分隔线的语法是：
- **** 
- * 分隔线需使用至少3个以上的*来标记   
- 行内不能有其他字符   
- 可以在标记符中间加上空格   
-    
-  ### 2.1.5 图片
-  插入图片的语法如下：   
-  ！【图片替代文字】（图片地址）
-  * 图片替代文字在图片无法正常显示时会比较有用，因为它能让你回想起这个图片是什么   
-  图片地址可以是本地图片的路径也可以是网络图片的地址   
-  本地图片支持相对路径和绝对路径两种方式（绝对路径就相当于源文件，就是图片所在最根本的位置；而相对路径就是你图片表面所在的位置，这个位置一旦变了，通过相对路径上传的图片就显示不出了）    
-      
-   ### 2.1.6 链接    
-      
-   #### 1. 文字链接
-   文字链接就是把链接地址直接写在文本中，语法如下   
-   【链接文字】（链接地址）    
-   * 我们还有第二种写法，如下   
-   在日常生活中我们经常使用的网址有【google】，【github】，【stack overflow】      
-   【google】：https://www.google.com/     
-   【GitHub】：网址    
-   【stack overflow】：网址        
-   这种方法把链接地址在某个地方同一定义好，然后在正文中通过“变量”来引用，可读性变强了，这种方法叫作引用链接。
-   * 引用链接的注意事项   
-      1. 链接标记不区分大小写
-      2. 定义的链接内容可以放在当前文件的任意位置，建议放在页尾
-      3. 当链接地址为网络地址时要以http/https开头，否则会被识别为本地地址
-         
-  #### 2. 网址链接
-  将网络地址或邮箱地址使用<>包裹起来会被自动转换为超链接（URL是网络地址的英文名）   
-  ### 2.1.7 行内代码与代码块
-       
-  #### 1. 行内代码
-  行内代码引用使用`包裹（我们可能不会经常使用这个键，不清楚这个键在哪里，在笔记本键盘的左上方，esc键的下面）    
+ > 《了不起的markdown》，《The Markdown Guide》
+
+> 在使用过程中，有任何需要新掌握的地方，去《了不起的markdown》中找
+
  
- `Fahaxiki`
- #### 2. 代码块
- 代码块以tab键或4个空格开头     
-       
-      代码块
- * 小提示：因为代码块使用tab键或4个空格开头的效果不够直观，很多扩展语法（如GFM）提供了围栏代码块，并且支持语法高亮
-     
- * 不要把自己的思想局限了，我们说是用`包裹的是代码，但想标明什么其他东西也可以用啊！    
- #### 3. 围栏代码
- 如果代码超过1行，应该使用围栏代码块（扩展语法），并声明语言，这样做便于阅读，并且可以显示语法高亮    
- 例如：    
- ```python
- def print_name():
- print("markdown")
- ```
-     
-  ### 2.1.8 引用
-  * 语法：由> + 引用内容来标记
-  * 多行引用也可以在每一行的开头都插入>      
-    在引用中可以嵌套引用             
-    在引用中可以使用其他的markdown语法      
-    段落与换行的格式在引用中也是适用的      
-  * 实战演练    
-  >我是最基础的引用     
-  
-  >我是换行引用    
-  >换行咯     
-  
-  >我是多行隔行引用    
-  >
-  >哈哈哈    
-      
-  >我是嵌套引用
-  >>芜湖     
-        
-  ### 2.1.9 转义
-  当我们想在markdown中插入一些标记符号，但又不想让这些符号被渲染时，可以使用\进行转义（就是比如我们想在开头打一个*号，但是打上后自动会变成点，我们要想得到*号就要加上\）    
-  * 可被转义的特殊符号如下    
-  \   
-  `  
-  \*
-  等等   
-     
-  ### 2.2.0 删除线
-      
-   ~~中间是被删除的文字~~
-  
-  ### 2.2.1 表情符号
-  使用：包裹代码即可（：表情代码：）   
-  * :smile: 
-  * :laughing:
-  * :+1:
-  * :-1:
-  * :clap:
-  * 更多的表情符号参考http://www.webpagefx.com/tools/emoji-cheat-sheet/    
-      
-  ### 2.2.2 自动链接
-  在我们前面提到的标准语法中，由<>包裹的URL地址被自动识别并解析为超链接，使用GFM扩展语法则可以不使用<>包裹
-  * 只需要直接将网站地址打出，即可自动生成超链接
-      * 但要注意！自动连接只识别www或者http：//开头的URL地址
-  * 如果不想使用自动链接，也可以使用`包裹URL地址如下         
-  * `www.baidu.com`(我刚刚看到这一点觉得很蠢，这样不就标亮了一下又没有生成超链接，人家告诉你这点就是想让你在记录一个网址但并不想生成超链接的情况下使用的！)    
-      
-  ### 2.2.2 表格
-  * |表头1|表头2|表头3|
-    |----|----|----|
-    |内容1|内容2|内容3|
-    |内容1|内容2|内容3|
-  *   1. 单元格使用|来分隔，有的地方|可以省略，当然表格省略|的地方也不会包裹起来，具体怎么好看可以自己去实验，但是书中建议还是前后都使用|     
-      2.单元格和|之间的空格会被清除
-      3.表头与其他内容行使用----来分隔
-   * 表格对齐格式如下    
-   左对齐 ：----
-   右对齐 ----：
-   居中对齐 ：----：
-   * 注意：块级元素（代码区块，引用区块）不能插入表格中
-   * | 左对齐 | 居中对齐 | 右对齐 |   
-     |:----|:----:|----:|  
-     | 01 | 博客 | http：//blog.csdn |       
-     | 02 | 微博 | http://www.weibo.com |   
-            
-  ### 2.2.3 任务列表 
-  * 任务列表语法如下    
-  \- 【 】未勾选       
-  \- 【x】已勾选    
-      
-  * 语法说明    
-  x小写（其实也可以大写，但有些编辑器不支持大写，所以为了避免麻烦，推荐使用小写x）   
-  当方括号中的字符为空格时，复选框是未选中状态，为x时是选中状态
-  * 今日工作：     
-  _ [ ] 吃饭    
-  _ [x] 喝水      
-  _ [ ] 玩耍       
-       
-  ### 2.2.4 锚点
-  锚点，也称为书签，用来标记文档的特定位置，使用锚点可以跳转到当前文档或其他文档中指定的标记位置（当文章特别长时候或者写的文档特别多时锚点非常适合）
-  * [锚点描述]（#锚点名）
-  * 锚点名建议使用字母和数字，当然中文也是被支持的，但不排除有些网站支持的不够好    
-    锚点名是区分英文大小写的    
-    在锚点名中不能含有空格，也不能含有特殊字符
-       
-   ### 2.2.5 全角和半角
+
+
+
+[TOC]
+
+
+
+#  0x00 **Basic Syntax**
+
+
+
+* 我们要知道 在不同的markdown处理器（不同的软件，不同的环境，不同的网页中），会有细微的变化和差异。不过这不重要，我们只要掌握最主流的基本语法即可。
+
+
+> Using Markdown doesn't mean that you can't also use HTML. You can add HTML tags to Markdown syntax. For example, some people find that it's easier to use HTML tags for images.
+
+
+
+
+## Headings
+
+```markdown
+# Heading level 1
+## Heading level 2
+### Heading level 3
+#### Heading level 4
+##### Heading level 5
+###### Heading level 6
+```
+
+
+
+```html
+<h1>Heading level 1</h1>
+<h2>Heading level 2</h2>
+<h3>Heading level 3</h3>
+<h4>Heading level 4</h4>
+<h5>Heading level 5</h5>
+<h6>Heading level 6</h6>
+```
+
+
+
+## **Bold**
+
+`  use * like this:   **Bold**  `
+
+`  <strong>Bold text</strong>              `
+
+
+
+## *Italic*
+
+`like this:     *Italic*             `        
+
+`<em>Italic</em>`
+
+
+
+## ***Bold and Italic***
+
+`like this:     ***Bold and Italic***`
+
+`<strong><em> Bold and Italic </em></strong>`
+
+
+
+## Blockquotes
+
+
+
+`> I want to use Markdown to write`
+
+`<blockquote>I want to use Markdown to write</blockquote>`
+
+
+
+> I want to use Markdown to write
+
+
+
+当然这个引用可以连续很多行，直到你按回车去终止它
+
+> emmmmmmmmmmmmmmmm
+>
+> emmmmmmmmmmmmmmmmmmmmmm
+>
+> emm
+>
+> emmmmmmmmmmmmmmmm
+
+
+
+## Nested Blockquotes
+
+
+
+```markdown
+> I want to use Markdown
+>> I want to use Markdown,too
+```
+
+```html
+<blockquote>
+    I want to use Markdown
+    <blockquote>
+        I want to use Markdown,too
+    </blockquote>
+</blockquote>
+```
+
+> I want to use Markdown
+>
+> > I want to use Markdown,too
+
+
+
+* blockquotes中也可以存在其他的标记符号，例如headings，bold，italic都可以显示，具体哪种标记在blockquotes中可以显示可以自己去尝试
+
+
+
+## Ordered Lists
+
+
+
+```markdown
+1. first item
+2. second item
+3. third item
+4. fourth item
+....
+```
+
+```html
+<ol>
+    <li>first item</li>
+    <li>second item</li>
+    <li>third item</li>
+    <li>fourth item</li>
+    ....
+</ol>
+```
+
+
+
+1. first item
+2. second item
+3. third item
+4. fourth item
+
+
+
+### **Nesting List Items**
+
+
+
+```markdown
+1. first item
+2. second item
+	1. Indented item
+	2. Indented item
+3. third item
+```
+
+```html
+<ol>
+    <li>first item</li>
+    <li>second item
+        <ol>
+            <li>Indented item</li>
+            <li>Indented item</li>
+        </ol>
+	
+    </li>
+    <li>third item</li>
+</ol>
+    
+```
+
+
+
+1. first item
+2. second item
+   1. indented item
+   2. indented item
+3. third item
+
+
+
+## Unordered Lists
+
+
+
+```markdown
+* first item
+* second item
+* third item
+
+```
+
+```html
+<ul>
+    <li>first item</li>
+    <li>second item</li>
+    <li>third item</li>
+    
+</ul>
+```
+
+
+
+* first item
+* second item
+* third item
+
+
+
+### **Nesting List Items**
+
+
+
+```markdown
+* first
+* second
+	* indented
+	* indented
+* third
+```
+
+* first
+* second
+  * indented
+  * indented
+* third
+
+
+
+
+
+> Ordered lists and Unordered lists，可以一起嵌套、任意嵌套，Ordered中可以嵌套Unordered，Unordered中也可以嵌套Ordered，全由书写人的喜好决定哦~，你想即所得
+
+
+
+
+
+## Code
+
+
+
+* use ``
+* <code></code>
+
+`code`
+
+*注意：只能作用于一行，即单行代码，一旦换行这个符号的作用就失效了。多行代码就要用code blocks了*
+
+
+
+## Code Blocks
+
+
+
+```
+use ```  and language's name
+
+like this:     ```python          ```c         ```html
+```
+
+* typora中用```就自动显示围栏代码了，但是其实完整的围栏代码形式是
+
+```
+```python            ```c             ```java
+```                  ```              ```
+```
+
+
+
+
+
+## Images
+
+
+
+`![picture's name](https://www.pexels.com/zh-cn/photo/5673835/)`
+
+![pexels-christian-heitz-842711](C:\Users\NightRaid\Desktop\pexels-christian-heitz-842711.jpg)
+
+
+
+* 直接把图片拖到typora中就会自动上传到图床了，这也是typora非常方便的一点
+
+
+
+
+
+## Horizontal Rules
+
+
+
+* 分割线用***表示，起到分割上下部分的效果
+
+
+
+***
+
+
+
+***
+
+
+
+
+
+## Links
+
+
+
+
+
+* `use [Waitbutwhy](https://waitbutwhy.com/)   `
+
+
+
+[Waitbutwhy](https://waitbutwhy.com/)
+
+
+
+* 简单不可命名的link方式，`use <https://waitbutwhy.com/>`
+
+
+
+ <https://waitbutwhy.com/>
+
+
+
+* 直接输入网址也可以哦，markdown会为你自动跳转的，https://zh.z-lib.org/
+  * 这种方法还是不要常用，有的平台或者软件不支持这样
+
+
+
+
+  * 如果不想使用自动链接，也可以使用`包裹URL地址如下
+
+    * ​      `www.baidu.com`(我刚刚看到这一点觉得很蠢，这样不就标亮了一下又没有生成超链接，人家告诉你这点就是想让你在记录一个网址但并不想生成超链接的情况下使用的！)    
+
+
+
+* 强调link的方式，`use      ***[Waitbutwhy](https://waitbutwhy.com/)*** , **[Waitbutwhy](https://waitbutwhy.com/)**,    *[Waitbutwhy](https://waitbutwhy.com/)*`
+
+
+
+***[Waitbutwhy](https://waitbutwhy.com/)***
+
+
+
+**[Waitbutwhy](https://waitbutwhy.com/)**
+
+
+
+*[Waitbutwhy](https://waitbutwhy.com/)*
+
+
+
+
+
+## Escaping Characters
+
+
+
+* 可以使我们平常用的有意义的字符都显示出来，不再作为markdown中的用法显示，use `\+everything  `
+
+
+
+\* emmm 
+
+\## emmm
+
+\*emmm*
+
+
+
+
+
+# 0x01 **Extended Syntax**
+
+
+
+
+
+## Strikethrough
+
+
+
+`use  The world is ~~flat~~  round.      `      
+
+The world is ~~flat~~  round.
+
+
+
+
+
+## Task Lists
+
+
+
+```markdown
+- [x] task 1
+- [ ] task 2
+- [ ] task 3
+```
+
+- [x] task 1
+- [ ] task 2
+- [ ] task 3
+
+* typora里有个优点哦，生成的task lists是动态的，对钩的完成和未完成直接用鼠标点就可以了
+
+
+
+## Table
+
+
+
+| 标题 | 标题 | 标题 |
+| :--: | :--: | :--: |
+|  1   |  1   |  1   |
+|  1   |  1   |  1   |
+|  1   |  1   |  1   |
+
+
+
+* 原来我也会在学习新知识时候尽量把每个东西都学到精细，但后来我发现这样不但没用而且一点都不便捷。
+* 就像在这里表格这种东西自己去一点点打太蠢了吧，直接在typora中右键插入就好了啊！！
+
+
+
+## Footnotes
+
+
+
+```
+Here's a simple footnote,[^1] and here's a longer one.[^bignote]
+
+[^1]: This is the first footnote.
+[^bignote]: emmmmmmmm
+[^bignote]: Here's one with multiple paragraphs and code. 
+这里bignote有两条脚注，鼠标每放上去一次显示其中一个，移开再放上去显示另一个。
+
+```
+
+
+
+Here's a simple footnote,[^1] and here's a longer one.[^bignote]
+
+[^1]: This is the first footnote.
+[^bignote]: emmmmmmmm
+[^bignote]: Here's one with multiple paragraphs and code. 
+
+
+
+
+
+## Emoji
+
+
+
+```markdown
+:smile:
+:laughing:
+:angry:
+:+1:
+:-1:
+:clap:
+```
+
+:smile:
+:laughing:
+:angry:
+:+1:
+:-1:
+:clap:
+
+* 更多表情符号使用请参考[emoji网站](https://www.webfx.com/tools/emoji-cheat-sheet/)
+* 当然，typora中已经给你放置了很多符号，直接拿来用就好~
+
+
+
+
+
+## Punctuation
+
+
+
      对于包括我在内的很多人来说，全角符号和半角符号可能是最熟悉的陌生人，虽然它们随处可见，但大部分人都没用    
  * 全角 ：`中文标点符号`是全角，占两个字节
  * 半角 ： `英文标点符号和数字`是半角，占一个字节
@@ -180,19 +506,61 @@ markdown的基础语法是指John Gruber最初发布的markdown版本，大多�
       * 在中文排版中，也就是中文句子中，要使用全角标点符号
       * 在英文排版中，要使用半角标点符号
       * 我觉得其实都是废话，打什么语言就直接打对应的符号了啊……
-      
+
+
+
+## typora中特殊的拓展语法
+
+
+
+1. 下标：`H~2~O`
+
+​                             H~2~O
+
+
+
+2. 上标：`X^2^`
+
+​                             X^2^
+
+
+
+3. 高亮：`==Highlight==`
+
+​                            ==Highlight==
+
+4. 下划线：在Typora中，下划线是通过HTML实现的      `<u>underline</u>`
+
+​                           <u>underline</u>
+
+
+
+5. 注释：在编辑和预览时，注释的内容会显示；但在导出成pdf和word时候，注释会消失。至于应用注释的场景，自行思考。`<!--我是注释-->`
+
+​                            <!--我是注释-->
+
+6. 目录：`[TOC]可以生成目录`     （Table of Contents）
+
+​                             演示效果在笔记的开头
+
+
+
+# 00x2 **Typora的学习**
+
+
+
+* ## typora中能恢复你更改过的版本文件，而且可以设置自动保存，这样如果误删了什么文档也不怕了
+
   
-        
-   
-   
   
+* ## 基本设置都可以从偏好习惯里更改
+
+
+
   
-  
-  
-  
-  
-  
-  
+
+
+
 
 
 
